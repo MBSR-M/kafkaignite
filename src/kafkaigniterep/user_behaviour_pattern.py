@@ -132,9 +132,7 @@ def main() -> None:
 
 
 def parse_command_line() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description='real_stock_producer is a Python library that generates '
-                                                 'synthetic host and CPU metrics with configurable logging and '
-                                                 'message production for testing and debugging.')
+    parser = argparse.ArgumentParser(description='user_behaviour_pattern')
     parser.add_argument('--debug', action='store_true', help='Enable debug logging')
     parser.add_argument('--kafka-debug', action='store_true', help='Enable debug logging')
     parser.add_argument('--log-file', default=r'D:\kafkaignite\logs\user_behaviour_pattern.log', help='Log file')

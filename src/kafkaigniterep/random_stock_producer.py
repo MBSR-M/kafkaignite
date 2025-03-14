@@ -111,11 +111,11 @@ def main() -> None:
     args = parse_command_line()
     configure_logging(args.log_file, args.log_retention_days, args.debug)
     cfg = read_server_config(args.config_file)
-    randon_stock_producer = StockProvider(BaseProvider)
+    random_stock_producer = StockProvider(BaseProvider)
 
     while True:
         try:
-            message, key = randon_stock_producer.produce_msg()
+            message, key = random_stock_producer.produce_msg()
             if message:
                 logger.info(f"Successfully generated: {message}")
             time.sleep(random.uniform(1, 5))
@@ -125,14 +125,12 @@ def main() -> None:
 
 
 def parse_command_line() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description='randon_stock_producer is a Python library that generates '
-                                                 'synthetic host and CPU metrics with configurable logging and '
-                                                 'message production for testing and debugging.')
+    parser = argparse.ArgumentParser(description='random_stock_producer.')
     parser.add_argument('--debug', action='store_true', help='Enable debug logging')
     parser.add_argument('--kafka-debug', action='store_true', help='Enable debug logging')
-    parser.add_argument('--log-file', default=r'D:\kafkaignite\logs\randon_stock_producer.log', help='Log file')
+    parser.add_argument('--log-file', default=r'D:\kafkaignite\logs\random_stock_producer.log', help='Log file')
     parser.add_argument('--log-retention-days', default=7, type=int, help='Log Retention Days')
-    parser.add_argument('--config-file', default='randon_stock_producer.conf', help='Configuration file')
+    parser.add_argument('--config-file', default='random_stock_producer.conf', help='Configuration file')
     return parser.parse_args()
 
 
